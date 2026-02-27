@@ -100,6 +100,6 @@ python prepare_data.py
 python train_model.py
 python predict.py
 
-
+---
 
 👨‍💻 Developed by Subham Kumar Swain
