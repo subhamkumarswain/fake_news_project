@@ -1,0 +1,17 @@
+# Ignore virtual environment folder
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints/
+
+# Large files
+data/*.csv
+*.zip
+*.h5
+news_dataset.csv
+# System files
+.DS_Store
