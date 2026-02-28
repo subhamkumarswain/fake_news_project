@@ -8,8 +8,7 @@ This project demonstrates end-to-end ML workflow including data preprocessing, m
 
 ## 🚀 Live Demo
 
-(If deployed, paste your Streamlit link here)
-
+https://fakenewsproject-qbs63o6klfypgxedj2gmry.streamlit.app/
 ---
 
 ## 📌 Project Overview
