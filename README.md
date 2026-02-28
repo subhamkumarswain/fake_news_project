@@ -14,8 +14,8 @@ The system compares multiple ML models and evaluates them using accuracy, classi
 - Total Samples: **44,898**
 - Columns: `text`, `label`
 - Label:
-  - `0` → Real News
-  - `1` → Fake News
+  - `0` → Fake News
+  - `1` → Real News
 
 The dataset was preprocessed and combined into a single CSV file before training.
 
