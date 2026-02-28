@@ -1,16 +1,29 @@
-# 📰 Fake News Detection using Machine Learning
+# 📰 Fake News Detection System
 
-## 📌 Project Overview
+A Machine Learning based web application that detects whether a news article is **Fake** or **Real** using Natural Language Processing (NLP) techniques.
 
-Fake news spreads misinformation rapidly through digital platforms.  
-This project builds a Machine Learning-based Fake News Detection system using Natural Language Processing (NLP) techniques to classify news articles as **Real (0)** or **Fake (1)**.
-
-The system compares multiple ML models and evaluates them using accuracy, classification metrics, and ROC-AUC score.
+This project demonstrates end-to-end ML workflow including data preprocessing, model comparison, evaluation, and deployment using Streamlit.
 
 ---
 
-## 📊 Dataset
+## 🚀 Live Demo
 
+(If deployed, paste your Streamlit link here)
+
+---
+
+## 📌 Project Overview
+
+Fake news detection is a critical problem in today's digital world.  
+This project uses **TF-IDF vectorization** and **Support Vector Machine (LinearSVC)** to classify news articles based on learned linguistic patterns.
+
+The system was trained on a labeled dataset of real and fake news articles and deployed as a web application.
+
+---
+
+## 🧠 Machine Learning Pipeline
+
+<<<<<<< HEAD
 - Total Samples: **44,898**
 - Columns: `text`, `label`
 - Label:
@@ -18,88 +31,155 @@ The system compares multiple ML models and evaluates them using accuracy, classi
   - `1` → Real News
 
 The dataset was preprocessed and combined into a single CSV file before training.
+=======
+1. Data Loading & Cleaning  
+2. Text Preprocessing  
+3. Train-Test Split  
+4. TF-IDF Feature Extraction  
+5. Model Training:
+   - Multinomial Naive Bayes
+   - Logistic Regression
+   - LinearSVC (Best Performing Model)
+6. Model Evaluation:
+   - Accuracy
+   - Precision
+   - Recall
+   - F1-Score
+   - Confusion Matrix
+   - Cross-Validation
+7. Model Saving using Joblib  
+8. Deployment using Streamlit  
+>>>>>>> f0ab681 (addded readme)
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Model Performance
+
+The **LinearSVC** model achieved strong performance with:
+
+- High Accuracy (~99%)
+- Balanced Precision and Recall
+- Stable Cross-Validation scores
+- Improved generalization using `class_weight='balanced'`
+
+Cross-validation was used to ensure the model does not overfit and performs consistently across different data splits.
+
+---
+
+## 🛠️ Technologies Used
 
 - Python
 - Scikit-learn
 - Pandas
-- TF-IDF Vectorizer
-- Logistic Regression
-- Multinomial Naive Bayes
-- Linear Support Vector Machine (LinearSVC)
+- NumPy
 - Matplotlib
 - Joblib
+- Streamlit
 
 ---
 
-## ⚙️ Project Workflow
+## 📂 Project Structure
 
-1. Load dataset using Pandas  
-2. Text feature extraction using **TF-IDF Vectorization**
-   - max_features = 15000  
-   - ngram_range = (1,2)  
-   - stop_words = 'english'  
-3. Train-Test Split (80% Training, 20% Testing)  
-4. Train multiple models:
-   - Logistic Regression  
-   - Naive Bayes  
-   - Linear SVM  
-5. Evaluate models using:
-   - Accuracy  
-   - Precision  
-   - Recall  
-   - F1-Score  
-6. Plot ROC Curve and compute AUC score  
-7. Save best performing model using Joblib  
+```
+fake_news_project/
+│
+├── models/
+│   ├── fake_news_model.pkl
+│   ├── tfidf.pkl
+│
+├── train_model.py
+├── predict.py
+├── app.py
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## 📈 Model Comparison
+## ▶️ How to Run the Project Locally
 
-| Model | Accuracy |
-|--------|----------|
-| Logistic Regression | 98.66% |
-| Naive Bayes | 94.89% |
-| Linear SVM | 99.38% |
+### 1️⃣ Clone the Repository
 
-✅ **Best Performing Model: Linear SVM**
+```bash
+git clone https://github.com/subhamkumarswain/fake_news_project.git
+cd fake_news_project
+```
 
----
-
-## 📊 ROC Curve Analysis
-
-ROC Curve was plotted for all models using:
-
-- False Positive Rate (FPR)
-- True Positive Rate (TPR)
-- Area Under Curve (AUC)
-
-Higher AUC indicates better classification performance.
-
----
-
-## 💾 Model Saving
-
-The trained model and TF-IDF vectorizer are saved using `joblib`:
-
-- `models/fake_news_model.pkl`
-- `models/tfidf.pkl`
-
-This allows direct loading for prediction without retraining.
-
----
-
-## ▶️ How to Run the Project
+### 2️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
-python prepare_data.py
-python train_model.py
-python predict.py
 ```
+
+### 3️⃣ Train the Model (Optional)
+
+```bash
+python train_model.py
+```
+
+### 4️⃣ Run the Streamlit Web App
+
+```bash
+streamlit run app.py
+```
+
+The app will open in your browser at:
+
+```
+http://localhost:8501
+```
+
 ---
 
-👨‍💻 Developed by Subham Kumar Swain
+## 💡 How It Works
+
+- The input news text is converted into numerical features using TF-IDF.
+- The trained LinearSVC model predicts whether the article is Fake or Real.
+- The decision function score is used to estimate prediction confidence.
+- The result is displayed through a clean web interface.
+
+---
+
+## ⚠️ Important Note
+
+This model detects writing style and linguistic patterns learned from the dataset.  
+It does **not verify factual correctness** using external knowledge sources.
+
+Short or out-of-distribution text may lead to biased predictions due to dataset limitations.
+
+---
+
+## 🎯 Learning Outcomes
+
+This project demonstrates:
+
+- Practical understanding of NLP
+- Feature engineering with TF-IDF
+- Model comparison and evaluation
+- Handling class imbalance
+- Cross-validation techniques
+- Model deployment with Streamlit
+- Production-style ML workflow
+
+---
+
+## 🔮 Future Improvements
+
+- Advanced preprocessing (stemming / lemmatization)
+- Hyperparameter tuning
+- Probability calibration
+- Explainable AI integration
+- Deep Learning models (LSTM / Transformer)
+- Integration with real-time news APIs
+
+---
+
+## 👨‍💻 Author
+
+**Subham Kumar Swain**  
+B.Tech Student | Machine Learning Enthusiast  
+Passionate about AI, NLP, and real-world problem solving.
+
+---
+
+⭐ If you found this project interesting, feel free to star the repository!
