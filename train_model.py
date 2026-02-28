@@ -21,10 +21,10 @@ y = df["label"]
 
 # TF-IDF
 vectorizer = TfidfVectorizer(
-    max_features=15000,
     stop_words='english',
-    ngram_range=(1,2),
-    min_df=2
+    max_df=0.7,
+    min_df=5,
+    ngram_range=(1,2)
 )
 X_vectorized = vectorizer.fit_transform(X)
 
@@ -45,9 +45,9 @@ svm_model.fit(X_train, y_train)
 
 
 models = {
-    "Logistic Regression": lr_model,
-    "Naive Bayes": nb_model,
-    "SVM": svm_model
+    "Logistic Regression": LogisticRegression(max_iter=1000),
+    "Naive Bayes": MultinomialNB(),
+    "SVM": LinearSVC(class_weight='balanced')
 }
 
 print("\n===== Cross Validation (5-Fold) =====")
@@ -58,9 +58,17 @@ for name, model in models.items():
     print(f"{name} Mean CV Accuracy: {scores.mean():.4f}")
 
 for name, model in models.items():
+
+    print(f"\n===== {name} =====")
+
+    # STEP 1: Train
+    model.fit(X_train, y_train)
+
+    # STEP 2: Predict
     y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    print(f"\n{name} Accuracy: {accuracy}")
+
+    # STEP 3: Evaluate
+    print("Accuracy:", accuracy_score(y_test, y_pred))
     print(classification_report(y_test, y_pred))
 
 plt.figure()
@@ -108,3 +116,4 @@ joblib.dump(vectorizer, "models/tfidf.pkl")
 
 print("Model saved successfully!")
 
+print(df["label"].value_counts())
