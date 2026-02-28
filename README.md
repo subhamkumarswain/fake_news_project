@@ -48,7 +48,6 @@ The dataset was preprocessed and combined into a single CSV file before training
    - Cross-Validation
 7. Model Saving using Joblib  
 8. Deployment using Streamlit  
->>>>>>> f0ab681 (addded readme)
 
 ---
 
