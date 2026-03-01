@@ -32,9 +32,10 @@ if st.button("🔍 Predict"):
     if user_input.strip() == "":
         st.warning("Please enter some news text.")
     else:
-        text_vectorized = vectorizer.transform([user_input])
-        prediction = model.predict(text_vectorized)[0]
-        decision_score = model.decision_function(text_vectorized)[0]
+        with st.spinner("Analyzing article... 🔍"):
+            text_vectorized = vectorizer.transform([user_input])
+            prediction = model.predict(text_vectorized)[0]
+            decision_score = model.decision_function(text_vectorized)[0]
 
         confidence = min(abs(decision_score) * 10, 100)
 
