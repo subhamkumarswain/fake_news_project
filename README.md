@@ -96,6 +96,10 @@ fake_news_project/
 └── README.md
 ```
 
+## 📊 Model Evaluation
+
+![Confusion Matrix](confusion_matrix.png)
+
 ---
 
 ## ▶️ How to Run the Project Locally
