@@ -1,0 +1,22 @@
+# Ignore virtual environment folder
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pkl
+models/
+results/
+logs/
+venv310/
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints/
+.vscode/
+# Large files
+distilbert_fake_news_model/
+data/*.csv
+*.zip
+*.h5
+news_dataset.csv
+# System files
+.DS_Store
