@@ -214,6 +214,7 @@ fake_news_project
 ├── train_distilbert.py
 ├── predict.py
 ├── predict_distilbert.py
+├── evaluate_distilbert.py
 ├── app.py
 │
 ├── requirements.txt
@@ -222,6 +223,8 @@ fake_news_project
 ├── App_Screenshot.png
 ├── CM_matrix.png
 ├── roc_curve.png
+├── CM_distilbert.png
+├── ROC_distilbert.png
 ```
 
 ---
